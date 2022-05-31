@@ -1,0 +1,70 @@
+@{
+    Layout = null;
+}
+
+@model iqraProject.DTOs.AddQuestionRequestModel
+@using iqraProject.Enums
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IQRA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class=" card col-md-6">
+            <div class="card-body ">
+                <div class="bg-light">
+                    <h1 class="tagcolor" style="color:mediumblue">Add a Question</h1>
+                    <p class="tagcolor" style="color:mediumblue">Kindly set a Question.</p>
+                    <hr class="tagcolor" style="color:mediumblue">
+
+                </div>
+                <form asp-action="Create" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="control-label">Upload audio file</label>
+                            <input name="questionSound" type="file" class="form-control" />
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <select asp-for = "QuestionType" asp-items="Html.GetEnumSelectList<QuestionType>()"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label asp-for="TextTest" class="control-label"></label>
+                            <input asp-for="TextTest" class="form-control" />
+                            <span asp-validation-for="TextTest" class="text-danger"></span>
+                        </div>
+                       
+                        <div class="col-md-6" style="margin-top: 20px; font-size: larger; font-weight: bold; color: darkcyan">
+                            <label  class="control-label">Assessment</label>
+                            <select asp-for="AssessmentId" class="form-control" asp-items="ViewBag.Assessment" required>
+                                <option value="">--Select Assessment--</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+
+                   
+                    <div class="form-group ">
+                        <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

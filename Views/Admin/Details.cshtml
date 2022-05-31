@@ -1,0 +1,38 @@
+@model iqraProject.DTOs.AdminDto
+
+
+
+<dl class="row">
+
+    @* <dt class="col-sm-2">
+        Admin Photo:
+    </dt>
+    <dd class="col-sm-10">
+        <img class="card-img" style="height:200px; width:200px" src="~/AdminPhoto/@Model.AdminPhoto" />
+        <a href="~/adminPhotos/@Model.AdminPhoto" download="@Model.AdminPhoto"><input class="btn btn-outline-primary" type="button" value="Download Photo" /></a>
+    </dd> *@
+    
+    <dt class="col-sm-2">
+        FirstName:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.FirstName
+    </dd>
+    <dt class="col-sm-2">
+        LastName:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.LastName
+    </dd>
+    <dt class="col-sm-2">
+        Email:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Email
+    </dd>
+    
+    
+    
+</dl>
+
+<button style="background-color:darkblue;"><a asp-action="Index">Back to List</a></button>

@@ -1,0 +1,80 @@
+@model IEnumerable<iqraProject.DTOs.LessonDto>
+
+
+
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lesson Platform</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+
+
+<div class="card-header" style="background-color: gold;">
+    <div class="card-title">
+        <h1 class="text-center" style="color: white;">Lesson</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+
+            <th>
+                Update
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => lesson.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => lesson.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => lesson.Description)
+            </td>
+            
+
+            <td>
+                <a asp-action="Update" asp-route-id="@lesson.Id">Update</a>
+            </td>
+            <td>
+                <a asp-action="GetLesssonDetails" asp-route-id="@lesson.Id">Details</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@lesson.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<button style="background-color: green;"><a style="text-decoration: none; color:white" asp-controller="Lesson" asp-action="Create">Add Lesson</a> </button>
+

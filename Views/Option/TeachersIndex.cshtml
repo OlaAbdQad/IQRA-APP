@@ -1,0 +1,92 @@
+@model IEnumerable<iqraProject.DTOs.OptionDto>
+
+
+
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] -All Option</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<div class="card-header" style="background-color: gold;">
+    <div class="card-title">
+        <h1 class="text-center" style="color: white;">Options</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Label)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Sound)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.OptionStatus)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.OptionType)
+            </th>
+
+
+
+            <th>
+                Update
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var option in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => option.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => option.Label)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => option.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => option.Sound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => option.OptionStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => option.OptionType)
+            </td>
+           
+
+            <td>
+                <a asp-action="Update" asp-route-id="@option.Id">Update</a>
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+</table>
+<button style="background-color:wheat;"><a asp-controller="Option" asp-action="CreateForTeacher">Create Option</a> </button>
+<button style="background-color:wheat;"><a asp-controller="Teacher" asp-action="Profile">Back to Profile</a> </button>
+

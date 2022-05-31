@@ -1,0 +1,31 @@
+@model iqraProject.DTOs.WordDto
+
+
+<dl class="row">
+
+    
+    
+    <dt class="col-sm-2">
+        WordName:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.WordName
+    </dd>
+    <dt class="col-sm-2">
+        Symbol:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Symbol
+    </dd>
+    <dt class="col-sm-2">
+        Sound:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Sound
+    </dd>
+    
+   
+    
+</dl>
+
+<button style="background-color:darkblue;"><a asp-action="Index">Back to List</a></button>

@@ -1,0 +1,49 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+<body>
+
+    <div class="all">
+
+        <div class="upperBody"
+            style="background-image: url('/MyImages/green.jpg'); background-size:cover; background-repeat:no-repeat;">
+            <h4 id="welcome">Welcome to IQRA</h4>
+            <p id="mainContent">The best among you are those who learn the Qur'an and teaches it.<br>Holy Prophet</p>
+        </div>
+
+        <div class="lowerBody"
+            style="background-image: url('/MyImages/arabic.jpg'); background-size:cover; background-repeat:no-repeat;">
+            <div class="mainDetails">
+                <h3 id="about">About</h3>
+                IQRA is a Quran and Arabic learning application. It offers the freedom to choose when and where to learn, quick and easy accessibility and standard teaching sequence with well detailed lessons and assessments.
+            </div>
+            <div class="additionalDetails">
+                Be a Pro, Learn and study basic Qur'an words yourself. Anytime, Anywhere!
+            </div>
+
+        </div>
+
+        <div class="bottom">
+            <button id="btn"><a asp-action="Create" asp-controller="Student">Sign Up</a></button>
+
+            <button id="btn"><a asp-action="Login" asp-controller="User">Sign In</a></button>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

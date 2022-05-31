@@ -1,0 +1,25 @@
+@model iqraProject.DTOs.OptionDto
+
+
+
+
+<body>
+    <div class="container">
+
+            <div class="inner-container">
+                <div class="label">@Model.Label</div>
+                <div class="text">@Model.Text</div>
+                <div class="sound">
+                    <audio controls>
+                    <source src="/OptionSound/@Model.Sound" type="audio/mp3">
+                    Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+
+    </div>
+
+
+</body>
+
+</html>

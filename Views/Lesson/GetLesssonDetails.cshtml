@@ -1,0 +1,60 @@
+@model iqraProject.DTOs.LessonDto
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/style.css">
+    
+</head>
+
+
+<body>
+    <div class="container">
+
+        <div id="instruction">
+            @Model.Description
+        </div>
+
+        @foreach (var item in Model.Words)
+        {
+            <div class="symbol-container">
+                <div class="symbol">@item.Symbol</div>
+                <div class="name">@item.WordName</div>
+                <div class="sound">
+                    @* <audio controls loop>
+                    <source src="/WordSound/@item.Sound" type="audio/mp3">
+                    Your browser does not support the audio element.
+                    </audio> *@
+                    <button style="background-color:wheat;"><a asp-controller="Lesson" asp-action="ConvertToSound" asp-route-symbol="@item.Symbol">Play</a> </button>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    @* <div>
+        @{var num = 1;}
+        @foreach (var item in Model.Assessments)
+        {
+            
+            <button>
+            <a asp-action="Details" asp-controller="Assessment" asp-route-id="@item.Id">Assessment</a>
+        </button>
+        num++;
+        }
+        
+    
+    </div> *@
+
+    
+   
+
+</body>
+
+</html>

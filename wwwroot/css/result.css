@@ -1,0 +1,13 @@
+body{
+    /* padding: 90px; */
+    background-color: rgb(49, 71, 5);
+    /* color: rgb(237, 209, 166); */
+}
+
+#messsage{
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color:gold;
+}

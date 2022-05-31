@@ -1,0 +1,104 @@
+@model iqraProject.DTOs.AssessmentDto
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/question.css">
+
+</head>
+
+
+<body style="background-image: url('/MyImages/holybook.jpg'); background-size:cover; background-repeat:no-repeat;">
+    <div class=" container">
+    <form asp-controller="Result" asp-action="GenerateLessonResult">
+
+        <div id="instruction">
+            @Model.Description
+        </div>
+
+        @{
+            var num = 1;
+        }
+        @foreach (var item in Model.Questions)
+        {
+            <div class="question-container">
+                @if (item.TextTest != null)
+                {
+                    <div class="number">@num.</div>
+                    <div class="question-text">@item.TextTest</div>
+                }
+                else
+                {
+                    <div class="number">@num.</div>
+                    <div class="question-sound">
+                        <audio controls>
+                            <source src="/QuestionSound/@item.AudioTest" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                }
+
+            </div>
+            num++;
+
+
+            @foreach (var option in item.Options)
+            {
+                <div class="option-container">
+
+                    @* @if (option.Text != null)
+                    { *@
+                        @* <div class="label">@option.Label</div>
+
+                        <div class="option-text">
+                            <label for="@option.Text">@option.Text</label>
+                            <input type="radio" name="@item.Id" value="@option.Id" id="@option.Id" required><br>
+                        </div> *@
+
+                    @* }
+                    else
+                    { *@
+                        <div class="label">@option.Label</div>
+
+                        <div class="option-sound">
+
+                            <label for="@option.Text">
+                                @* <audio controls>
+                                    <source src="/OptionSound/@option.Sound" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio> *@
+                                <button style="background-color:wheat;"><a asp-controller="Assessment" asp-action="ConvertToSound" asp-route-text="@option.Text">Play</a> </button>
+                            </label>
+                            <input type="radio" name="@item.Id" value="@option.Id" id="@option.Id" required><br>
+
+                        </div>
+                    @* } *@
+
+
+
+                </div>
+            }
+
+        }
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+
+    </div>
+
+
+    @* <div class="lower">
+        <button id="btn" style="background-color:gray;"><a asp-action="Details" asp-controller="Lesson">Back to
+        List</a></button>
+        </div> *@
+
+</body>
+
+</html>

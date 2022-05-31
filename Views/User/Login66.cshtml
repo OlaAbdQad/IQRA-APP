@@ -1,0 +1,51 @@
+@{
+    Layout = null;
+}
+@model iqraProject.DTOs.UserLoginDto
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="~/css/login.css">
+    <title>Document</title>
+</head>
+
+
+<body>
+    @* <span id="error-message" class="hidden"></span>/ *@
+    <div class="container">
+    @ViewBag.error
+    <form asp-action="Login" id="login-form">
+            <div class="form-container">
+                <div class="signin-text">
+                    <h1>Sign In</h1>
+                </div>
+                <div id="email-input">
+                    <div class="label-input">
+                        <label for="email" class="label-tag">Email address</label>
+                        <div id="input-type-input">
+                            <input type="email" id="email-input-login" name="email" class="input-display">
+                           </div>
+                    </div>
+
+                    <div class="label-input-2">
+                        <label for="email" class="label-tag">Password</label>
+                        <div id="input-type-input">
+                            <input type="password" id="pass-word-input-login" name="email" class="input-display">
+                           </div>
+                    </div>
+                    <div class="form-group">
+                        @* <button id="btn-submit">Sign In</button>
+                        <button id="btn-submit">Sign In</button> *@
+                        <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" id="btn-submit" />
+                    </div>
+                   
+                  
+                </div>
+            </div>
+        </form>
+    </div>
+    @* <script src="/Script/loginPage.js"></script> *@
+</body>
+</html>

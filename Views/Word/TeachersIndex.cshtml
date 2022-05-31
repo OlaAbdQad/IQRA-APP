@@ -1,0 +1,81 @@
+@model IEnumerable<iqraProject.DTOs.WordDto>
+
+
+
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] -Words</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<div class="card-header" style="background-color: gold;">
+    <div class="card-title">
+        <h1 class="text-center" style="color: white;">Words</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.WordName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Symbol)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Sound)
+            </th>
+
+            
+
+
+
+            <th>
+                Update
+            </th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var word in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => word.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => word.WordName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => word.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => word.Sound)
+            </td>
+            
+           
+
+            <td>
+                <a asp-action="Update" asp-route-id="@word.Id">Update</a>
+            </td>
+            
+        </tr>
+        }
+    </tbody>
+</table>
+<button style="background-color:wheat;"><a asp-controller="Word" asp-action="CreateForTeacher">Add Word</a> </button>
+<button style="background-color:wheat;"><a asp-controller="Teacher" asp-action="Profile">Back to Profile</a> </button>
+

@@ -1,0 +1,33 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* background-image: url(~/MyImages/login.jpg); */
+}
+
+/* .login{
+    
+    
+    
+
+} */
+
+h4{
+    color:rgb(42, 4, 4);
+    background-color:greenyellow;
+    padding-left: 500px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color:gold;
+    
+    
+}
+
